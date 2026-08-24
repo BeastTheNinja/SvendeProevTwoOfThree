@@ -1,0 +1,18 @@
+@use "../../utils/Colors.module.scss" as colors;
+@use "../../utils/Fonts.module.scss" as fonts;
+
+.NavbarStyles {
+  display: flex;
+  justify-content: space-between;
+  div {
+    display: flex;
+    gap: 1rem;
+    option {
+      border-color: colors.$GreenBluish;
+    }
+    button {
+      background-color: colors.$GreenBluish;
+      border: none;
+    }
+  }
+}
