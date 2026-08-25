@@ -8,6 +8,8 @@ import Register from "../pages/Register/Register";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Users from "../pages/Users/Users";
 import NotFound from "../pages/NotFound/NotFound";
+import Products from "../pages/Product/Product";
+import Advertise from "../pages/Advertise/Advertise";
 
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 
@@ -18,6 +20,14 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: '/products',
+        element: <Products />,
+      },
+      {
+        path: '/advertise',
+        element: <Advertise />,
       },
       {
         path: "/login",
@@ -31,7 +41,7 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute />,
         children: [
           {
-            path: "/dashboard",
+            path: "/profil",
             element: <Dashboard />,
           },
           {

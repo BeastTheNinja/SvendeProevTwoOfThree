@@ -5,7 +5,7 @@ import type { FormEvent } from "react";
 
 import { useNavigate } from "react-router";
 
-import Button from "../../components/Button/Button";
+
 import Input from "../../components/Input/Input";
 import Loading from "../../components/Loading/Loading";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -33,9 +33,13 @@ function Login() {
       await login({
         username: userName,
         password,
+      }).then((res) => {
+        console.log(res);
+      }).finally(() => {
+
+        navigate("/profil");
       });
 
-      navigate("/dashboard");
     } catch {
       setError("Invalid username or password.");
     } finally {
@@ -59,10 +63,10 @@ function Login() {
 
       <form onSubmit={handleSubmit}>
         <Input
-          id="email"
-          name="email"
-          label="Email"
-          type="email"
+          id="username"
+          name="username"
+          label="Username"
+          type="text"
           value={userName}
           onChange={(event) =>
             setUserName(event.target.value)
@@ -82,9 +86,8 @@ function Login() {
           required
         />
 
-        <Button type="submit">
-          Login
-        </Button>
+        <input type="submit" value="login" />
+
       </form>
     </section>
   );

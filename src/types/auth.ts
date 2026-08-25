@@ -6,15 +6,32 @@ export type LoginCredentials = {
 };
 
 export type RegisterCredentials = {
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
+  address: string;
+  zipcode: number;
+  city: string;
   email: string;
   password: string;
-  adress: string;
-  zipcode: string
-  city: string
+  hasNewsletter: boolean;
+  hasNotification: boolean;
 };
 
 export type AuthResponse = {
+  accessToken: string;
+  refreshToken: string;
   user: User;
+};
+
+export type RegisterResponse = {
+  id: number;
+  firstname: string;
+  lastname: string;
+  address: string;
+  zipcode: number;
+  city: string;
+  email: string;
+  hasNewsletter: boolean;
+  hasNotification: boolean;
+  isActive: boolean;
 };
