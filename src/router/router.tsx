@@ -12,6 +12,8 @@ import Products from "../pages/Product/Product";
 import Advertise from "../pages/Advertise/Advertise";
 
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import ProductDetails from "../pages/Product/ProductDetails";
+import ProductCategory from "../pages/Product/ProductCategory";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ export const router = createBrowserRouter([
       {
         path: '/products',
         element: <Products />,
+      },
+      {
+        path: '/products/:id',
+        element: <ProductDetails />,
+      },
+      {
+        path: '/products/category/:slug',
+        element: <ProductCategory />,
       },
       {
         path: '/advertise',

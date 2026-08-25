@@ -45,7 +45,7 @@ function Register() {
         password,
         hasNewsletter: false,
         hasNotification: false,
-
+        isActive: true,
       });
 
       navigate("/login");

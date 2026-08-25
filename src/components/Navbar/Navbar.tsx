@@ -4,10 +4,15 @@ import Button from "../Button/Button";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { CiSquareInfo } from "react-icons/ci";
 import styles from "./Navbar.module.scss";
+
+
 import useFetch from "../../hooks/useFetch";
 import { useEffect } from "react";
+
+
 import type { category } from "../../types/category";
 import { useNavigate } from "react-router";
+
 import { useState } from "react";
 import { logout } from "../../services/auth.service";
 
@@ -15,6 +20,7 @@ import { logout } from "../../services/auth.service";
 
 function Navbar() {
   const navigate = useNavigate();
+
   const [isAccountMenuOpen, setIsAccountMenuOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -34,7 +40,7 @@ function Navbar() {
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     event.preventDefault();
     const selectedCategorySlug = event.target.value;
-    navigate(`/api/products/category/${selectedCategorySlug}`);
+    navigate(`/products/category/${selectedCategorySlug}`);
     console.log('Selected category ID:', selectedCategorySlug);
   }
 

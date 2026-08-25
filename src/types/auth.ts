@@ -15,6 +15,7 @@ export type RegisterCredentials = {
   password: string;
   hasNewsletter: boolean;
   hasNotification: boolean;
+  isActive: boolean;
 };
 
 export type AuthResponse = {
@@ -33,5 +34,5 @@ export type RegisterResponse = {
   email: string;
   hasNewsletter: boolean;
   hasNotification: boolean;
-  isActive: boolean;
+  
 };
