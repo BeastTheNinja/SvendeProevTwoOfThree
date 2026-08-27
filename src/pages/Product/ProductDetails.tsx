@@ -6,36 +6,36 @@ import Card from "../../components/Card/Card";
 
 
 function ProductDetails() {
-    const { id } = useParams<{ id: string }>();
+    const { slug } = useParams<{ slug: string }>();
 
     const {
-        data: product,
+        data: products,
         loading,
         error,
     } = useFetch<products>(
-        `/api/products/${id}`
+        `/api/products/${slug}`
     );
 
     useEffect(() => {
         try {
-            if (product) {
-                console.log(product);
+            if (products) {
+                console.log(products);
             }
         } catch (error) {
             console.error('Error fetching product:', error);
         }
-    }, [product]);
+    }, [products]);
 
     return (
         <div>
             <h1>Product Details</h1>
             {loading && <p>Loading product...</p>}
             {error && <p>Error loading product</p>}
-            {product && (
-                <Card title={product.name}>
-                    <img src={product.image} alt={product.name} />
-                    <p>{product.description}</p>
-                    <p>Price: {product.price}</p>
+            {products && (
+                <Card title={products.name} key={products.id}>
+                    <img src={products.image} alt={products.name} />
+                    <p>{products.description}</p>
+                    <p>Price: {products.price}</p>
                 </Card>
             )}
         </div>

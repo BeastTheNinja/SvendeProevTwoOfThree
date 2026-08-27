@@ -34,7 +34,7 @@ function Products() {
                     {paginatedItems.map((product) => (
                         <Link
                             key={product.id}
-                            to={`/products/${product.id}`}
+                            to={`/products/${product.slug}`}
                         >
                             <img src={product.image} alt={product.name} />
                             <h3>{product.name}</h3>

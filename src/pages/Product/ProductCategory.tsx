@@ -26,7 +26,7 @@ function ProductCategory() {
             <h1>Produkter i kategorien</h1>
 
             {products?.map((product) => (
-                <div key={product.id}>
+                <div key={product.slug}>
                     <img src={product.image} alt={product.name} />
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>

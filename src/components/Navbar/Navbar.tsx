@@ -37,14 +37,22 @@ function Navbar() {
 
   }, [categories]);
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCategoryChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     event.preventDefault();
+
     const selectedCategorySlug = event.target.value;
+
+    if (selectedCategorySlug === "all") {
+      navigate("/products");
+      return;
+    }
+
     navigate(`/products/category/${selectedCategorySlug}`);
-    console.log('Selected category ID:', selectedCategorySlug);
-  }
 
-
+    console.log("Selected category:", selectedCategorySlug);
+  };
 
   async function handleAccountClick() {
     const opening = !isAccountMenuOpen;
@@ -70,10 +78,12 @@ function Navbar() {
 
           {error && <option>Error loading categories</option>}
 
+          <option value='all'>Alle Produkter</option>
           {categories && categories.map((category) => (
             <option key={category.id} value={category.slug}>
               {category.name}
             </option>
+
           ))}
         </select>
 
