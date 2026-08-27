@@ -5,6 +5,7 @@ import { Link } from "react-router";
 
 import type { products } from "../../types/products";
 import Card from "../../components/Card/Card";
+import CategoryNavigation from "../../components/CategoryNavigation/CategoryNavigation";
 
 
 function Products() {
@@ -26,6 +27,7 @@ function Products() {
 
     return (
         <>
+            <CategoryNavigation />
             <div>
                 <Card title="Products">
                     {loading && <p>Loading products...</p>}
