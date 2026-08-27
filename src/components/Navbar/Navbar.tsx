@@ -14,7 +14,7 @@ import type { category } from "../../types/category";
 import { useNavigate } from "react-router";
 
 import { useState } from "react";
-import { logout } from "../../services/auth.service";
+import { isLoggedIn, logout } from "../../services/auth.service";
 
 
 
@@ -59,8 +59,35 @@ function Navbar() {
     setIsAccountMenuOpen(opening);
   }
 
+  useEffect(() => {
+    async function checkLogin() {
+      const authenticated = await isLoggedIn();
+      setLoggedIn(authenticated);
+    }
+
+    function handleAuthChange(event: Event) {
+      const customEvent = event as CustomEvent<boolean>;
+      setLoggedIn(customEvent.detail);
+    }
+
+    checkLogin();
+
+    window.addEventListener("auth-change", handleAuthChange);
+
+    return () => {
+      window.removeEventListener("auth-change", handleAuthChange);
+    };
+  }, []);
+
   async function handleLogout() {
     logout();
+
+    window.dispatchEvent(
+      new CustomEvent("auth-change", {
+        detail: false,
+      })
+    );
+
     setLoggedIn(false);
     setIsAccountMenuOpen(false);
     navigate("/");
@@ -118,7 +145,6 @@ function Navbar() {
                 </>
               ) : (
                 <>
-
                   <Button onClick={() => navigate("/profil")}>
                     Profil
                   </Button>

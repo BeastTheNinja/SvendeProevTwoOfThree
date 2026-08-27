@@ -34,10 +34,7 @@ export const router = createBrowserRouter([
         path: '/products/category/:slug',
         element: <ProductCategory />,
       },
-      {
-        path: '/advertise',
-        element: <Advertise />,
-      },
+      
       {
         path: "/login",
         element: <Login />,
@@ -52,6 +49,10 @@ export const router = createBrowserRouter([
           {
             path: "/profil",
             element: <Dashboard />,
+          },
+          {
+            path: '/advertise',
+            element: <Advertise />,
           },
         ],
       },

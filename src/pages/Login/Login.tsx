@@ -33,12 +33,15 @@ function Login() {
       await login({
         username: userName,
         password,
-      }).then((res) => {
-        console.log(res);
-      }).finally(() => {
-
-        navigate("/profil");
       });
+
+      window.dispatchEvent(
+        new CustomEvent("auth-change", {
+          detail: true,
+        })
+      );
+
+      navigate("/profil");
 
     } catch {
       setError("Invalid username or password.");
