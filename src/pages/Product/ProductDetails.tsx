@@ -4,6 +4,7 @@ import type { products } from "../../types/products";
 import { useEffect } from "react";
 import Card from "../../components/Card/Card";
 import CategoryNavigation from "../../components/CategoryNavigation/CategoryNavigation";
+import ContactSales from "../../components/ContactSales/ContactSales";
 
 
 function ProductDetails() {
@@ -44,6 +45,9 @@ function ProductDetails() {
                         </Card>
                     </>
                 )}
+                <div/>
+                {/* kommentare felt */}
+                <ContactSales productId={products?.id || 0} />
             </div>
         </>
     );

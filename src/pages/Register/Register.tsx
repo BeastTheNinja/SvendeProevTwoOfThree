@@ -1,7 +1,7 @@
 import {
   useState,
 } from "react";
-import type { FormEvent } from "react";
+import type { SubmitEvent } from "react";
 
 import { useNavigate } from "react-router";
 
@@ -27,7 +27,7 @@ function Register() {
   const [error, setError] = useState("");
 
   async function handleSubmit(
-    event: FormEvent<HTMLFormElement>
+    event: SubmitEvent<HTMLFormElement>
   ) {
     event.preventDefault();
 
