@@ -17,6 +17,7 @@ export async function login(credentials: LoginCredentials) {
 
   cookies.set("accessToken", response.accessToken);
   cookies.set("refreshToken", response.refreshToken);
+  cookies.set("user", response.user)
 
   return response;
 }
